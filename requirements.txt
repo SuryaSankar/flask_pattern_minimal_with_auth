@@ -1,0 +1,7 @@
+flask
+sqlalchemy
+flask_sqlalchemy
+flask_script
+flask_migrate
+flask_security
+mysqlclient
