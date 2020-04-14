@@ -5,19 +5,19 @@
         <title>Flask Boilerplate Demo</title>
         <!-- Tell the browser to be responsive to screen width -->
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        {% block page_css_before_body %}
-        {% endblock %}
-        {% block page_js_before_body %}
+        {% include "layout_sections/layout_imports_at_top" %}
+
+        {% block page_imports_at_top %}
         {% endblock %}
     </head>
     <body>
         {% block page_content %}
         {% endblock %}
 
-        {% block page_css_after_body %}
-        {% endblock %}
-        {% block page_js_after_body %}
-        {% endblock %}    
+        {% include "layout_sections/layout_imports_at_bottom" %}
+
+        {% block page_imports_at_bottom %}
+        {% endblock %}  
     </body>
         
 </html>

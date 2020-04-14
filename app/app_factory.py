@@ -1,10 +1,16 @@
 from flask import Flask
 from .models.core import db
 from .models.user import user_datastore
+from . import views
 from flask_security import Security
 
 
-def create_app():
+def register_blueprints_on_app(app):
+    app.register_blueprint(views.main_pages_bp)
+    app.register_blueprint(views.main_api_bp, url_prefix='/api')
+
+
+def create_app(register_blueprints=True):
     app = Flask(__name__, instance_relative_config=True)
 
     app.config.from_object('app.default_config')
@@ -18,6 +24,9 @@ def create_app():
         server=app.config['DB_SERVER'],
         db=app.config['DB_NAME'])
     db.init_app(app)
+
+    if register_blueprints:
+        register_blueprints_on_app(app)
 
     Security(
         app, user_datastore)
