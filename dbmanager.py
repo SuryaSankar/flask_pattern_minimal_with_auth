@@ -5,7 +5,7 @@ from app.app_factory import create_app
 
 
 def create_db_manager():
-    app = create_app()
+    app = create_app(register_blueprints=False)
     migrate = Migrate(app, db)
     manager = Manager(app)
     manager.add_command('db', MigrateCommand)

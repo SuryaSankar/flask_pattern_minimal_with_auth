@@ -2,7 +2,7 @@
 
 
 {% block page_content %}
-<div>
+<div class="starter-template">
     <h1>Home Page Title</h1>
 
     {% if current_user.is_authenticated %}
@@ -15,6 +15,11 @@
             <a href="/register">Register</a>
         </div>
     {% endif %}
+    <button id="home-page-cta">Click Me</button>
 </div>
+{% endblock %}
+
+{% block page_assets_at_bottom %}
+    {{ macros.static_js_tag("js/home.js")}}
 {% endblock %}
 

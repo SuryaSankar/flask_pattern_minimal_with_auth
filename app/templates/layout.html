@@ -1,3 +1,4 @@
+{% import "macros.html" as macros %}
 <html>
     <head>
         <meta charset="utf-8">
@@ -5,18 +6,29 @@
         <title>Flask Boilerplate Demo</title>
         <!-- Tell the browser to be responsive to screen width -->
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        {% include "layout_sections/layout_imports_at_top" %}
+        {% include "layout_sections/layout_assets_at_top.html" %}
 
-        {% block page_imports_at_top %}
+        {{ macros.static_css_tag("css/main.css")}}
+
+        {% block page_assets_at_top %}
         {% endblock %}
     </head>
     <body>
-        {% block page_content %}
-        {% endblock %}
+        {% include "layout_sections/top_navbar.html" %}
+        <div class="container">
 
-        {% include "layout_sections/layout_imports_at_bottom" %}
+            {% block page_content %}
+            {% endblock %}
 
-        {% block page_imports_at_bottom %}
+
+        </div><!-- /.container -->
+
+
+        {% include "layout_sections/layout_assets_at_bottom.html" %}
+
+        {{ macros.static_js_tag("js/main.js")}}
+
+        {% block page_assets_at_bottom %}
         {% endblock %}  
     </body>
         

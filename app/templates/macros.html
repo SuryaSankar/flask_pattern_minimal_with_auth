@@ -1,0 +1,14 @@
+{% macro static_js_tag(filepath) %}
+<script 
+    type="text/javascript" 
+    src="{{url_for('static', filename=filepath)}}">
+</script>
+{% endmacro %}
+
+{% macro static_css_tag(filepath) %}
+<link 
+    rel="stylesheet" 
+    type="text/css" 
+    src="{{url_for('static', filename=filepath)}}">
+</link>
+{% endmacro %}
