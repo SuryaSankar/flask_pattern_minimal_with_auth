@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+
+
+{% block page_content %}
+<div class="starter-template">
+    <h1>About us page</h1>
+
+    <button id="home-page-cta">Click Me</button>
+</div>
+{% endblock %}
+
+{% block page_assets_at_bottom %}
+    {{ macros.static_js_tag("js/about.js")}}
+{% endblock %}
+

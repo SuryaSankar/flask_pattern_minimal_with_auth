@@ -5,3 +5,5 @@ flask_script
 flask_migrate
 flask_security
 mysqlclient
+bcrypt
+ipython
